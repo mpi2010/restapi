@@ -10,24 +10,13 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    const ADMIN_USER = 'true';
-    const REGULAR_USER = 'false';
-
-    const VRIFIED_USER = '1';
-    const UNVERIFIED_USER = '0';
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'verified',
-        'verification_token',
-        'admin',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -36,9 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
-        'verification_token',
+        'password', 'remember_token',
     ];
 
     /**
@@ -49,17 +36,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function isVerified()
-    {
-        return $this->verified = User::VRIFIED_USER;
-    }
-    public function isAdmin()
-    {
-        return $this->admin = User::ADMIN_USER;
-    }
-    public static function generateVerificationCode()
-    {
-        return str_random(40);
-    }
-
 }
