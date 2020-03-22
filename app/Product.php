@@ -17,6 +17,9 @@ class Product extends Model
         'image',
         'seller_id',
     ];
+    /**
+     * @var string
+     */
 
     public function is_Available()
     {
