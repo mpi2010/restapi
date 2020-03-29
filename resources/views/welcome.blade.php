@@ -94,6 +94,108 @@
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+                <?php
+               $arr = array(1,2,4,5,8,10,14,15,22,44,45);
+                foreach( $arr as $key => $value)
+                {
+                    if($value%5 == 0) {
+                        echo $key . '- й єлемент массива = '. $value.'<br>';
+                    }
+                }
+                echo '**********<br>';
+                $i = 0;
+                do {
+                    $a = random_int(0,9);
+                    $b = random_int(0,9);
+                    $c = random_int(0,9);
+                    $i++;
+                    echo $i . '<br>';
+                }
+                while ($a+$b+$c <= 14);
+                echo $i . ' колличество итерраций. сумма равна '.$a=$b=$c;
+                echo '<br>**********<br>';
+                class MyClass {
+                    public $e = 'public a';
+                    protected $d= 'protected b';
+                    private $k = 'private c';
+                public function print(){
+                    echo $this->e .'<br>';
+                    echo $this->d .'<br>';
+                    echo $this->k .'<br>';
+                }
+
+
+
+                }
+                $obj = new MyClass();
+                echo $obj->print() .'<br>';
+                echo '<br>**********<br>';
+                abstract class Car {
+                    abstract public function speed();
+
+                }
+                class BMW extends Car {
+                    public function speed() {
+                     return  '200';
+                    }
+                }
+                $obj = new BMW();
+                echo $obj->speed();
+                echo '<br>**********<br>';
+                $aa ='1';
+                $aa[$aa]= '12';
+               echo $aa[0].'====='.$aa[1];
+                echo '<br>**********<br>';
+                class A {
+                    public static $sT = 'static constants';
+                    public static function sT()
+                    {
+                        echo ' =static function sT()=';
+                    }
+
+                }
+                $objA = new A();
+                echo A::$sT;
+                A::sT();
+                //
+
+                $arrM = array(1,5,6,7,8,9,11,12);
+
+                $n = count($arrM);
+                echo $n;
+                echoRec($n, $arrM);
+
+                function echoRec($n, $arrM)
+                {
+                    if($n==1)
+                    {
+                        $abcd = array_pop($arrM);
+                        echo '<br> end'. $abcd;
+                        } else {
+                        $abcd = array_pop($arrM);
+                         echo '<br>'. $abcd;
+                        echoRec($n-1,$arrM);
+                    }
+
+                }
+
+                interface firstInterface{
+                    public function load();
+                }
+                abstract class firstClass implements firstInterface
+                {
+                    abstract function load();
+                }
+                class secondClass extends firstClass
+                {
+                    public function load() {
+                        echo '<br>ssd';
+                    }
+                }
+                $obj = new secondClass();
+                echo $obj->load();
+
+                ?>
             </div>
         </div>
     </body>

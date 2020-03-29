@@ -52,6 +52,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
     public function isVerified()
     {
         return $this->verified = User::VRIFIED_USER;
