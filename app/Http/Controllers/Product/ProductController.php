@@ -16,18 +16,19 @@ class ProductController extends ApiController
     public function index()
     {
         $products = Product::all();
-        return response()->json(['data'=>$products],200);
+        return $this->showAll($products);
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\JsonResponse
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        $product = Product::findOrFail($id);
-        return response()->json(['data'=>$product],200);
+        return $this->showOne($product);
     }
+
 }
